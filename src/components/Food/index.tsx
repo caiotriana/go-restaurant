@@ -4,11 +4,19 @@ import { FiEdit3, FiTrash } from 'react-icons/fi';
 import { Container } from './styles';
 import api from '../../services/api';
 
-export default function Food(props) {
-  
-  const { food, handleEditFood, handleDelete } = props;
+import { FoodTypes } from '../../pages/Dashboard/dashboard.types'
 
-  const [isAvailable, setIsAvailable] = useState(false)
+interface FoodProps {
+  food: FoodTypes;
+  handleEditFood(food: FoodTypes): void;
+  handleDelete(id: number): void;
+}
+
+export default function Food({
+  food, handleEditFood, handleDelete
+} : FoodProps) {
+
+  const [isAvailable, setIsAvailable] = useState<boolean>(false)
 
 
 
